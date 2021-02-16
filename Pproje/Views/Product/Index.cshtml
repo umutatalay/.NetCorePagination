@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+@model PagedList.Core.IPagedList<Pproje.Models.Product>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <table class="table table-hover">
+
+        <tr>
+            <th>ProductID</th>
+            <th>ProductName</th>
+
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductID</td>
+                <td>@product.ProductName</td>
+
+            </tr>
+        }
+        <tr>
+            <td colspan="1" align="center">
+                <pager list="@Model" asp-controller="Product" asp-action="Index" />
+            </td>
+        </tr>
+    </table>
+    <a asp-action="Index" asp-controller="Product" asp-route-page="1" class="btn btn-primary"> 1 </a>
+    <a asp-action="Index" asp-controller="Product" asp-route-page="2" class="btn btn-primary"> 2 </a>
+    <a asp-action="Index" asp-controller="Product" asp-route-page="3" class="btn btn-primary"> 3 </a>
+    <a asp-action="Index" asp-controller="Product" asp-route-page="4" class="btn btn-primary"> 4 </a>
+    <a asp-action="Index" asp-controller="Product" asp-route-page="5" class="btn btn-primary"> 5 </a>
+
+
+</body>
+</html>
